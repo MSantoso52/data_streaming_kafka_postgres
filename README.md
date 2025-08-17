@@ -28,6 +28,24 @@ Data streaming from kafka to postgresql
    ```bash
    python3 data_streamer.py
    ```
+   ```vim
+   import json
+   import time
+   import random
+   from datetime import datetime
+   from kafka import KafkaProducer
+   from faker import Faker
+
+   # --- Configuration ---
+   KAFKA_BROKER = 'localhost:9092'  # Replace with your Kafka broker address
+   KAFKA_TOPIC = 'new-events'    # Replace with your desired Kafka topic name
+   INTERVAL_SECONDS = 10           # in seconds
+   ```
+   ```vim
+   # Send the JSON data to the Kafka topic
+   future = producer.send(KAFKA_TOPIC, value=customer_data)
+   record_metadata = future.get(timeout=10) # Block until a result is received, 10s timeout
+   ```
 5. Data consume
    - python3 code create postgres connection
      ```vim

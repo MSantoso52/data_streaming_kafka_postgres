@@ -21,5 +21,46 @@ To follow along this learning, below requirement need to be available at your sy
 # *Project Flow*
 Data streaming from kafka to postgresql
 1. Prequsition -- running kafka server, provide topic for publish-subcription
-2. Data streaming -- python3 code to autogenerate json data every 10 sec than publish into kafka
-3. Data consume -- python3 code; create postgres connection, sql query for data insertion, kafka consumer connect to topic, insert consume data to postgres
+   ```bash
+   sudo systemctl start kafka
+   ```
+3. Data streaming -- python3 code to autogenerate json data every 10 sec than publish into kafka
+   ```bash
+   python3 data_streamer.py
+   ```
+5. Data consume
+   - python3 code create postgres connection
+     ```vim
+     import json
+     from kafka import KafkaConsumer
+     import psycopg2  # PostgreSQL library
+
+     # --- Configuration ---
+     KAFKA_BROKER = 'localhost:9092'  # Replace with your Kafka broker address
+     KAFKA_TOPIC = 'new-events'      # Replace with your Kafka topic name
+     POSTGRES_HOST = 'localhost'     # Replace with your PostgreSQL host
+     POSTGRES_DB = 'costumer'   # Replace with your PostgreSQL database name
+     POSTGRES_USER = '*****'     # Replace with your PostgreSQL username
+     POSTGRES_PASSWORD = '*****' # Replace with your PostgreSQL password
+     ```
+   - sql query for data insertion
+     ```vim
+      # Construct the INSERT query
+        insert_query = f"INSERT INTO {table_name} ({columns}) VALUES ({values})"
+     ```
+   - kafka consumer connect to topic
+     ```vim
+     # Establish a connection to the PostgreSQL database
+        conn = psycopg2.connect(
+            host=POSTGRES_HOST,
+            database=POSTGRES_DB,
+            user=POSTGRES_USER,
+            password=POSTGRES_PASSWORD
+        )
+        cur = conn.cursor()
+     ```
+   - insert consume data to postgres
+     ```vim
+     # Insert the data into PostgreSQL
+       insert_data_to_postgres(customer_data)
+     ```

@@ -1,4 +1,7 @@
 # data_streaming_kafka_postgres
+# *Overview*
+# *Prerequisites*
+# *Project Flow*
 Data streaming from kafka to postgresql
 1. Prequsition -- running kafka server, provide topic for publish-subcription
 2. Data streaming -- python3 code to autogenerate json data every 10 sec than publish into kafka

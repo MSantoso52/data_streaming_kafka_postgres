@@ -15,6 +15,7 @@ To follow along this project, below requirement need to be available at your sys
   ```bash
   sudo systemctl status kafka
   ```
+  ![Kafka running screenshot](kafka_running.png)
 - postgresql running on system
   ```bash
   sudo systemctl status postgresql

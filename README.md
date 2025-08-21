@@ -6,7 +6,7 @@ Project repo to demonstrate data streaming and data consuming using Kafka. Data 
 To follow along this project, below requirement need to be available at your system:
 - python3 installed with kafka library
   ```bash
-  sudo apt instaal python3
+  sudo apt install python3
   ```
   ```bash
   pip install kafka

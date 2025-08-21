@@ -1,4 +1,5 @@
 # data_streaming_kafka_postgres
+![Screenshot of a project interface](kafka_postgres.jpg)
 # *Overview*
 Project repo to demonstrate data streaming and data consuming using Kafka. Data streamer using auto generate data using python3 code and consuming then importing into PostgreSQL as data lake. This work flow is demonstrate simple data ingestion using streaming method. 
 # *Prerequisites*
